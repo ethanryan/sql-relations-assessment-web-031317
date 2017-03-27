@@ -26,6 +26,9 @@ Here, we have a different Yelp-style application. We need customers, restaurants
     ### author
     id | name |
 
+
+
+
 2. As a second step, please fill in the stubbed out methods in the respective model. The important thing here is to know what SQL will fire to select the data you're looking for. For example, if I want a method called 'author' for my `Book` class, it might look something like this.
 
 ```ruby
@@ -73,3 +76,23 @@ end
 
 
 #### Write your domain model here:
+
+customers, restaurants, owners, and reviews
+
+restaurants have many owners
+customers have many reviews
+
+###restaurants (restaurants just have one owner, so each restaurant has to keep track of its owner_id)
+id | name | owner_id
+
+###customers (customers have many reviews, so each review keeps track of the customer who wrote it)
+id | name
+
+###owners (owners own multiple restaurants??)
+id | name | restaurant_id
+
+###restaurants_owners (could make an overlap database)
+id | owner_id | restaurant_id
+
+###reviews (each review has a title and keeps track of who wrote it and about which restaurant was reviewed)
+id | title | customer_id | restaurant_id

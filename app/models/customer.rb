@@ -9,10 +9,23 @@ class Customer
     hometown: "TEXT"
   }
 
+
   attr_accessor(*self.public_attributes)
   attr_reader :id
 
-  def reviews
+  ALL = []
+
+  def initialize(id)
+    @id = id
+    ALL << self
+  end
+
+#  - Customer#reviews
+#    - returns all of the reviews written by that customer
+  def self.reviews
+    #code here
+    #self.
+    ####need to connect Customer to Review from review.rb
   end
 
   def restaurants
@@ -23,4 +36,5 @@ class Customer
     SQL
     self.class.db.execute(sql, self.id)
   end
+  
 end
